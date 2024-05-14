@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AWS Role Name Changer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      padding: 10px;
+    }
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+    }
+    #mappings {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h3>AWS Role Name Changer</h3>
+  <div>
+    <input id="accountId" type="text" placeholder="Account ID (XXXX-XXXX-XXXX)" />
+    <input id="roleName" type="text" placeholder="Role Name (e.g., fe-sandbox)" />
+    <button id="save">Save</button>
+  </div>
+  <div id="status"></div>
+  <div id="mappings">
+    <h4>Saved Mappings</h4>
+    <ul id="mappingsList"></ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
