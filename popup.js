@@ -8,9 +8,33 @@ document.addEventListener('DOMContentLoaded', function() {
   
         for (const accountId in roleMappings) {
           const li = document.createElement('li');
-          li.textContent = `${accountId}: ${roleMappings[accountId]}`;
+          li.className = 'mapping-item';
+          li.innerHTML = `
+            <span>${accountId}: ${roleMappings[accountId]}</span>
+            <button class="delete" data-account-id="${accountId}">Delete</button>
+          `;
           mappingsList.appendChild(li);
         }
+  
+        // 削除ボタンにイベントリスナーを追加
+        document.querySelectorAll('.delete').forEach(button => {
+          button.addEventListener('click', function() {
+            const accountIdToDelete = this.getAttribute('data-account-id');
+            deleteMapping(accountIdToDelete);
+          });
+        });
+      });
+    }
+  
+    // マッピングを削除する関数
+    function deleteMapping(accountId) {
+      chrome.storage.sync.get('roleMappings', function(data) {
+        const roleMappings = data.roleMappings || {};
+        delete roleMappings[accountId];
+  
+        chrome.storage.sync.set({ roleMappings: roleMappings }, function() {
+          displayMappings();
+        });
       });
     }
   
