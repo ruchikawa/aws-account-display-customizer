@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "AWS Role Name Changer",
-    "version": "0.0.3",
+    "name": "AWS Account Display Customizer",
+    "version": "0.0.4",
     "permissions": [
       "activeTab",
       "storage"
@@ -17,7 +17,7 @@
     "content_scripts": [
       {
         "matches": ["https://*.aws.amazon.com/*"],
-        "js": ["content.js"]
+        "js": ["src/content.js"]
       }
     ]
   }

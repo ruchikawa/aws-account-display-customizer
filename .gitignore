@@ -1,0 +1,7 @@
+# Ignore local environment configuration files
+.DS_Store
+.env
+.vscode/
+
+# Ignore Chrome extension specific files
+*.pem
