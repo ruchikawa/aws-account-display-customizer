@@ -1,9 +1,8 @@
 {
     "manifest_version": 3,
     "name": "AWS Account Display Customizer",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "permissions": [
-      "activeTab",
       "storage"
     ],
     "action": {
